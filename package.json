@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.1",
+    "prop-types": "^15.5.10",
     "moment": "^2.10.6"
   },
   "peerDependencies": {
