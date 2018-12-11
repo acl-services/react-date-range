@@ -192,7 +192,7 @@ class Calendar extends Component {
     // Current month's days
     for (let i = 1; i <= dayCount; i++) {
       const dayMoment  = shownDate.clone().date(i);
-      const dayMomentFormatted = dayMoment.format("YYYY-MM-DD");
+      const dayMomentFormatted = dayMoment.format('YYYY-MM-DD');
 
       if (disableDaysBeforeDate && (dayMomentFormatted < disableDaysBeforeDate)) {
         days.push({ dayMoment, isPassive: true});

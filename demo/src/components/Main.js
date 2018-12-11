@@ -30,7 +30,7 @@ export default class Main extends Component {
   render() {
     const { rangePicker, linked, datePicker, firstDayOfWeek, predefined} = this.state;
     const format = 'dddd, D MMMM YYYY';
-    const todaysDate = moment().format("YYYY-MM-DD");
+    const todaysDate = moment().format('YYYY-MM-DD');
 
     return (
       <main className={styles['Main']}>
