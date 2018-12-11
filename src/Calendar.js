@@ -163,7 +163,7 @@ class Calendar extends Component {
     // TODO: Split this logic into smaller chunks
     const { styles }               = this;
 
-    const { range, maxRange, minDate, maxDate, format, onlyClasses, disableDaysBeforeToday } = this.props;
+    const { range, maxRange, minDate, maxDate, format, onlyClasses, disableDaysBeforeDate } = this.props;
 
     const shownDate                = this.getShownDate();
     const { date, firstDayOfWeek } = this.state;
@@ -192,10 +192,10 @@ class Calendar extends Component {
     // Current month's days
     for (let i = 1; i <= dayCount; i++) {
       const dayMoment  = shownDate.clone().date(i);
-      // set days before today to isPassive
-      var _today = moment()
-      if (disableDaysBeforeToday && Number(dayMoment.diff(_today,"days")) <= -1) {
-        days.push({ dayMoment ,isPassive:true});
+      const dayMomentFormatted = dayMoment.format("YYYY-MM-DD");
+
+      if (disableDaysBeforeDate && (dayMomentFormatted < disableDaysBeforeDate)) {
+        days.push({ dayMoment, isPassive: true});
       } else {
         days.push({ dayMoment });
       }
@@ -262,14 +262,14 @@ Calendar.defaultProps = {
   format      : 'DD/MM/YYYY',
   theme       : {},
   showMonthArrow: true,
-  disableDaysBeforeToday: false,
+  disableDaysBeforeDate: '',
   onlyClasses : false,
   classNames  : {}
 }
 
 Calendar.propTypes = {
   showMonthArrow : PropTypes.bool,
-  disableDaysBeforeToday : PropTypes.bool,
+  disableDaysBeforeDate : PropTypes.string,
   lang           : PropTypes.string,
   sets           : PropTypes.string,
   range          : PropTypes.shape({

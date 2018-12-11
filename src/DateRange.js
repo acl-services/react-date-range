@@ -121,7 +121,7 @@ class DateRange extends Component {
       classNames,
       onlyClasses,
       lang,
-      disableDaysBeforeToday,
+      disableDaysBeforeDate,
       offsetPositive,
       shownDate,
       showMonthArrow,
@@ -162,7 +162,7 @@ class DateRange extends Component {
               <Calendar
                 showMonthArrow={ showMonthArrow }
                 shownDate={ shownDate }
-                disableDaysBeforeToday={ disableDaysBeforeToday }
+                disableDaysBeforeDate={ disableDaysBeforeDate }
                 lang={ lang }
                 key={i}
                 offset={ realOffset }

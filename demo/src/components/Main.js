@@ -30,6 +30,7 @@ export default class Main extends Component {
   render() {
     const { rangePicker, linked, datePicker, firstDayOfWeek, predefined} = this.state;
     const format = 'dddd, D MMMM YYYY';
+    const todaysDate = moment().format("YYYY-MM-DD");
 
     return (
       <main className={styles['Main']}>
@@ -110,7 +111,7 @@ export default class Main extends Component {
             />
           </div>
           <Calendar
-            disableDaysBeforeToday={true}
+            disableDaysBeforeDate={todaysDate}
             lang={'cn'}
             date={ now => { return now } }
             onInit={ this.handleChange.bind(this, 'datePicker') }
@@ -231,7 +232,7 @@ export default class Main extends Component {
               endDate={ now => {return now.add(1,'month').add(3,'days')}}
               shownDate={moment()}
               offsetPositive={true}
-              disableDaysBeforeToday={true}
+              disableDaysBeforeDate={todaysDate}
               showMonthArrow={false}
               calendars={4}
               onInit={ this.handleChange.bind(this, 'rangePicker') }
